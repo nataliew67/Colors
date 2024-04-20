@@ -1,6 +1,5 @@
 package grechushnikova.natali
 
-
 import android.graphics.Color
 import android.os.Bundle
 import android.widget.*
@@ -60,32 +59,39 @@ class MainActivity : AppCompatActivity() {
             val green: Int
             val blue: Int
 
-
             if (rangeRadioButton.isChecked) {
+                if (redEditText.text.isNullOrEmpty() || greenEditText.text.isNullOrEmpty() || blueEditText.text.isNullOrEmpty()) {
+                    Toast.makeText(this, "Введите число от 0 до 255", Toast.LENGTH_SHORT).show()
+                    return@setOnClickListener
+                }
+
                 red = redEditText.text.toString().toIntOrNull() ?: 0
                 green = greenEditText.text.toString().toIntOrNull() ?: 0
                 blue = blueEditText.text.toString().toIntOrNull() ?: 0
+
+                if (red !in 0..255 || green !in 0..255 || blue !in 0..255) {
+                    Toast.makeText(this, "Введите число от 0 до 255", Toast.LENGTH_SHORT).show()
+                    return@setOnClickListener
+                }
             } else {
                 red = redSeekBar.progress
                 green = greenSeekBar.progress
                 blue = blueSeekBar.progress
             }
 
+
             val colorView = TextView(this)
             colorView.text = "Ваш цвет"
-            colorView.height = 250;
             colorView.setBackgroundColor(Color.rgb(red, green, blue))
-            colorView.textAlignment;
+            colorView.height = 200
 
-
-
-            val alertDialogb = AlertDialog.Builder(this)
+            val alertDialogBuilder = AlertDialog.Builder(this)
                 .setView(colorView)
                 .setPositiveButton("Закрыть") { dialog, _ ->
                     dialog.dismiss()
                 }
 
-            alertDialogb.create().show()
+            alertDialogBuilder.create().show()
         }
 
         alertDialog.show()
