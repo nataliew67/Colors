@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="25dp">
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RadioButton
+            android:id="@+id/rangeRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Диапазон" />
+
+        <RadioButton
+            android:id="@+id/sliderRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ползунки" />
+    </RadioGroup>
+
+    <LinearLayout
+        android:id="@+id/inputLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <EditText
+            android:id="@+id/redEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Красный(0-255)" />
+
+        <EditText
+            android:id="@+id/greenEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Зеленый(0-255)" />
+
+        <EditText
+            android:id="@+id/blueEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Синий(0-255)" />
+    </LinearLayout>
+
+    <SeekBar
+        android:id="@+id/redSeekBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:max="255"
+        android:visibility="gone" />
+
+    <SeekBar
+        android:id="@+id/greenSeekBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:max="255"
+        android:visibility="gone" />
+
+    <SeekBar
+        android:id="@+id/blueSeekBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:max="255"
+        android:visibility="gone" />
+
+    <Button
+        android:id="@+id/getColorButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:backgroundTint="#03A9F4"
+        android:text="Получить цвет" />
+</LinearLayout>
